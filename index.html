@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이채현 | 인프라 엔지니어 포트폴리오</title>
+    <link href="https://cdn.jsdelivr.net/npm/pretendard@1.3.8/dist/web/static/pretendard.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* Deep Navy */
+            --secondary-color: #3b82f6; /* Bright Blue */
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section {
+            padding-top: 5rem;
+            margin-bottom: 4rem;
+        }
+
+        h2.section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .hero .quote {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #94a3b8;
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .contact-info a:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #e2e8f0;
+            color: #334155;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Projects */
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-title h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .project-meta {
+            text-align: right;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .project-role {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .project-tech {
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .project-details li {
+            margin-bottom: 0.8rem;
+            margin-left: 1.5rem;
+        }
+        
+        .project-details li strong {
+            color: var(--text-main);
+        }
+
+        /* Experience & Education */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            border-left: 2px solid #cbd5e1;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* 심플 모바일 대응 */
+            .project-header { flex-direction: column; }
+            .project-meta { text-align: left; margin-top: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Lee Chae-hyun Portfolio</div>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#skills">Tech Stack</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+        </ul>
+    </nav>
+
+    <header id="hero" class="hero">
+        <h1>이채현</h1>
+        <h2>시스템 설계 및 보안과 무중단 클라우드 인프라를 잇는 엔지니어</h2>
+        <div class="quote">
+            "시스템의 가장 밑바탕이자 최후의 보루는 타협 없는 보안과 안정적인 인프라 및 개발입니다. 2년간의 끈질긴 시스템 운영(SM) 경험으로 풀스택 개발 기술과 주도적인 클라우드 아키텍처(AWS EKS, CI/CD) 구축 경험을 바탕으로, 비즈니스의 멈춤 없는 성장을 견인하는 든든한 방패가 되겠습니다."
+        </div>
+        <div class="contact-info">
+            <a href="mailto:이메일 입력">qpqp8899@naver.com</a>
+            <a href="링크입력" target="_blank">https://github.com/chaehyeon42</a>
+            <a href="링크입력" target="_blank">https://velog.io/@hyeon_04/posts</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="skills">
+            <h2 class="section-title">Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS (EKS, EC2, VPC, S3)</span>
+                        <span class="skill-tag">AWS RDS, ALB, SSM</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Network & Security</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">IPSec VPN (StrongSwan)</span>
+                        <span class="skill-tag">Zero Trust Architecture</span>
+                        <span class="skill-tag">UFW 방화벽</span>
+                        <span class="skill-tag">Spring Security</span>
+                        <span class="skill-tag">JWT / OAuth2</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java & Spring Boot</span>
+                        <span class="skill-tag">JPA</span>
+                        <span class="skill-tag">PostgreSQL / MySQL</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">EMQX (MQTT)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend & Data</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React / Vite</span>
+                        <span class="skill-tag">Zustand</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Selenium / BeautifulSoup</span>
+                        <span class="skill-tag">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Projects Experience</h2>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">
+                        <h3>스마트 안전 관제 시스템</h3>
+                        <p>클라우드 네이티브 기반 실시간 AI 비전 관제 및 대시보드 시스템</p>
+                        <span class="project-role">인프라 아키텍처 설계 / CI·CD 자동화 / BE 통합</span>
+                    </div>
+                    <div class="project-meta">
+                        2026.05.21 ~ 2026.07.29
+                    </div>
+                </div>
+                <div class="project-tech">
+                    AWS(EKS, VPC, RDS, S3, EC2, SSM), GitHub Actions, Spring Boot, React, EMQX(MQTT), Redis, IPSec VPN
+                </div>
+                <ul class="project-details">
+                    <li><strong>클라우드 인프라 아키텍처 설계:</strong> 퍼블릭/프라이빗 서브넷 분리, 비용 최적화(FinOps)를 위해 단일 가용 영역(Zonal) NAT 게이트웨이 및 S3 VPC 엔드포인트 적용.</li>
+                    <li><strong>Zero Trust 기반 Private RDS 접속:</strong> DB를 프라이빗 망에 격리하고, 22번 포트 대신 AWS SSM 포트 포워딩을 활용하여 안전한 로컬 접속 터널링(15432 포트 우회) 제공.</li>
+                    <li><strong>하이브리드 망(EKS - 외부 GPU 서버) IPSec VPN 구축:</strong> StrongSwan을 활용한 사설망 터널 개통. IKEv1/v2 암호화 규격 충돌 및 1시간 주기 세션 단절(Phase 2 Rekey)을 ipsec.conf 알고리즘 고정 및 Keep-Alive 적용으로 해결.</li>
+                    <li><strong>독립 Redis 아키텍처 연동:</strong> EKS 노드 초기화 비용 절감 정책에 대응하여, 독립 EC2에 Docker Compose 기반 Redis를 구축하고 프라이빗 IP로 연동해 데이터 영속성 보장.</li>
+                    <li><strong>GitHub Actions 자동화 파이프라인:</strong> 프론트엔드는 S3 정적 호스팅으로 최적화 배포, AI/백엔드는 엄격한 쉘 스크립트(자폭 에러 방지)로 무결점 무중단 배포(CI/CD) 달성.</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">
+                        <h3>사내 프로젝트 관리 및 결재 통합 시스템</h3>
+                        <p>권한 기반(Role-Based) 조직 관리 및 실시간 업무 현황 모니터링 시스템</p>
+                        <span class="project-role">조장 (Team Leader) / 총괄 및 풀스택 개발</span>
+                    </div>
+                    <div class="project-meta">
+                        26.03.27 ~ 26.04.08
+                    </div>
+                </div>
+                <div class="project-tech">
+                    React, Zustand, Tailwind CSS, Spring Boot, Spring Security, JWT, OAuth2, SSE
+                </div>
+                <ul class="project-details">
+                    <li><strong>팀 리더십 및 통합 디버깅:</strong> 기획부터 배포까지 총괄. 코드 병합 시 발생한 CORS 정책 충돌, 403 Forbidden 권한 에러, 리액트 Key 렌더링 오류를 주도적으로 해결하여 팀 목표 달성.</li>
+                    <li><strong>통합 인증 및 보안 시스템:</strong> HTTP-Only 쿠키를 이용한 JWT 인증 도입. 구글 OAuth2 연동 및 사용자 권한(ADMIN, TEAM_LEADER, USER)에 따른 동적 라우팅 및 인가 처리 최적화.</li>
+                    <li><strong>SSE 기반 실시간 알림:</strong> 클라이언트 Polling 부하 감소를 위해 Server-Sent Events(SSE)를 도입하여 업무 배정 및 보안 위협 실시간 알림 UI 완벽 연동.</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">
+                        <h3>Sent-Logic</h3>
+                        <p>지능형 지역 경제 모니터링 및 자산 영향 분석 대시보드</p>
+                        <span class="project-role">조장 (Team Leader) / 파이프라인 총괄</span>
+                    </div>
+                    <div class="project-meta">
+                        26.02.23 ~ 26.02.27
+                    </div>
+                </div>
+                <div class="project-tech">
+                    Python, Selenium, BeautifulSoup, SQLite, Streamlit, Folium
+                </div>
+                <ul class="project-details">
+                    <li><strong>크롤링 파이프라인 설계:</strong> 지역별 신문사 데이터를 수집하는 웹 스크래퍼를 객체 지향적(Class)으로 설계하여 코드 확장성 확보.</li>
+                    <li><strong>데이터 정제 및 DB 마이그레이션:</strong> 비정형 텍스트 데이터를 정제하고 SQLite 스키마를 튜닝하여 정확한 시계열 분석 환경 조성.</li>
+                    <li><strong>대시보드 시각화 최적화:</strong> Streamlit 캐시 연동을 개선하여 날짜 필터링에 따른 렌더링 지연을 해소하고 직관적인 경제 지도(Folium) 구현.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Work Experience & Education</h2>
+
+             <div class="timeline-item">
+                <div class="timeline-date">2022.06 ~ 2022.12</div>
+                <div class="timeline-title">울산 그린아카데미</div>
+                <ul style="list-style-position: inside; color: var(--text-muted); font-size: 0.95rem;">
+                    <li>빅데이터(파이썬) 분석을 활용한 JAVA 풀스텍(Backend + Frontend) 웹 개발 양성 과정</li>
+                    <li>java 풀스텍 백 & 프론트엔드를 활용한 시스템 서비스 구현 프로젝트 수행.</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2023.03 ~ 2025.03</div>
+                <div class="timeline-title">ITMATE - 인프라 운영 및 시스템 유지보수(SM)</div>
+                <ul style="list-style-position: inside; color: var(--text-muted); font-size: 0.95rem;">
+                    <li>대구경북첨단의료산업진흥재단 포털 및 통합경영관리시스템 유지보수 전담.</li>
+                    <li>Jenkins 활용 빌드/배포 프로세스 관리 및 시스템 연계(JSON) 오류 트러블슈팅.</li>
+                    <li>MySQL 기반 DB 형상 관리 및 기능 개선 수행으로 무중단 운영 체계 확립.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2026.02 ~ 2026.07</div>
+                <div class="timeline-title">SK쉴더스 루키즈 (SK Shieldus Rookies) 5기</div>
+                <ul style="list-style-position: inside; color: var(--text-muted); font-size: 0.95rem;">
+                    <li>디지털 융합 기술 및 DevOps / 클라우드 기반 애플리케이션 운영 과정 수료.</li>
+                    <li>AWS 인프라 아키텍처 설계, 보안 제어, IaC, 풀스택 지능형 서비스 구현 프로젝트 수행.</li>
+                </ul>
+            </div>
+
+           
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2026 이채현 (Lee Chae-hyun). All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
