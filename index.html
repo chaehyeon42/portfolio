@@ -61,7 +61,7 @@
         .project-meta { font-size: 0.95rem; color: var(--text-muted); font-weight: 600; margin-top: 0.3rem; }
         .project-tech { font-size: 0.95rem; color: var(--secondary-color); font-weight: 600; margin-bottom: 2rem; padding: 1rem; background: #eff6ff; border-radius: 8px; }
         
-        /* Structured List - Modified for image_24c128.png layout */
+        /* Structured List */
         .structured-list { list-style: none; padding-left: 0; }
         .structured-list li { margin-bottom: 1.8rem; display: flex; align-items: flex-start; }
         .structured-list li::before { content: "■"; color: var(--secondary-color); margin-right: 15px; font-size: 0.65rem; margin-top: 7px; }
@@ -78,9 +78,10 @@
         .sub-content p:last-child { margin-bottom: 0; }
         .sub-content b { color: var(--text-main); font-weight: 700; }
 
-        .project-links { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid #e2e8f0; }
-        .project-links a { color: var(--secondary-color); text-decoration: none; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
-        .project-links a:hover { text-decoration: underline; }
+        /* Project Links (Updated for PPT buttons) */
+        .project-links { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid #e2e8f0; display: flex; gap: 0.8rem; flex-wrap: wrap; }
+        .project-links a { color: var(--primary-color); background: #f8fafc; text-decoration: none; font-weight: 600; font-size: 0.9rem; padding: 0.6rem 1rem; border-radius: 6px; border: 1px solid #cbd5e1; display: flex; align-items: center; gap: 0.4rem; transition: all 0.3s ease; }
+        .project-links a:hover { background: var(--primary-color); color: white; border-color: var(--primary-color); }
 
         /* Timeline */
         .timeline-item { position: relative; padding-left: 2rem; margin-bottom: 2rem; border-left: 2px solid #cbd5e1; }
@@ -102,7 +103,7 @@
             .structured-list li { flex-direction: column; }
             .structured-list strong { margin-bottom: 0.5rem; }
             .list-content { padding-left: 1.2rem; border-left: 2px solid #e2e8f0; margin-left: 0.2rem; }
-            .structured-list li::before { display: none; } /* Hide bullet on mobile for cleaner look */
+            .structured-list li::before { display: none; }
         }
     </style>
 </head>
@@ -221,7 +222,8 @@
                     </li>
                 </ul>
                 <div class="project-links">
-                    <a href="https://github.com/chaehyeon42/smart_safety_AI_system.git" target="_blank">🔗 GitHub Repository 보기</a>
+                <a href="https://github.com/chaehyeon42/smart_safety_AI_system.git" target="_blank">🔗 GitHub Repository</a>
+                <a href="./pdf/smart_safety_presentation.pdf" target="_blank" title="스마트 안전 관제 시스템 발표자료">📄 프로젝트 PPT</a>
                 </div>
             </div>
 
@@ -263,7 +265,8 @@
                     </li>
                 </ul>
                 <div class="project-links">
-                    <a href="https://github.com/chaehyeon42/MINI_ERP_SYSTEM.git" target="_blank">🔗 GitHub Repository 보기</a>
+                <a href="https://github.com/chaehyeon42/MINI_ERP_SYSTEM.git" target="_blank">🔗 GitHub Repository</a>
+                <a href="./pdf/mini_erp_presentation.pdf" target="_blank" title="사내 프로젝트 관리 및 결재 통합 시스템 발표자료">📄 프로젝트 PPT</a>
                 </div>
             </div>
 
@@ -304,7 +307,8 @@
                     </li>
                 </ul>
                 <div class="project-links">
-                    <a href="https://github.com/chaehyeon42/Sent-Logic.git" target="_blank">🔗 GitHub Repository 보기</a>
+                <a href="https://github.com/chaehyeon42/Sent-Logic.git" target="_blank">🔗 GitHub Repository</a>
+                <a href="./pdf/senti_logic_presentation.pdf" target="_blank" title="Sent-Logic 발표자료">📄 프로젝트 PPT</a>
                 </div>  
             </div>
         </section>
