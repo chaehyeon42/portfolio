@@ -194,7 +194,7 @@
                     <h3>Network & Security</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">IPSec VPN (StrongSwan)</span>
-                        <span class="skill-tag">Zero Trust / CloudFront CDN</span>
+                        <span class="skill-tag">Zero Trust / Network Security</span>
                         <span class="skill-tag">UFW 방화벽 / 보안그룹</span>
                         <span class="skill-tag">Spring Security</span>
                         <span class="skill-tag">JWT / OAuth2</span>
@@ -239,7 +239,7 @@
                     <span>CI/CD 자동화</span>
                 </div>
                 <div class="card-techs">
-                    <span>AWS EKS</span><span>Terraform</span><span>CloudFront</span><span>GitHub Actions</span><span>EMQX</span>
+                    <span>AWS EKS</span><span>Terraform</span><span>S3</span><span>GitHub Actions</span><span>EMQX</span>
                 </div>
             </div>
 
@@ -278,12 +278,11 @@
             </div>
         </section>
 
-       <!-- Troubleshooting section (카드형 요약 UI로 변경) -->
+       <!-- Troubleshooting section -->
         <section id="Troubleshooting">
             <h2 class="section-title">Troubleshooting Experience</h2>
             <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">※ 카드를 클릭하시면 해결 과정과 습득 역량을 상세히 확인하실 수 있습니다.</p>
             
-            <!-- TS Card 1 -->
             <div class="summary-card" onclick="openModal('modal-ts-1')">
                 <div class="card-header-top">
                     <span class="project-role" style="background:#fee2e2; color:#991b1b; margin-top:0;">Infra & Network</span>
@@ -297,7 +296,6 @@
                 </div>
             </div>
             
-            <!-- TS Card 2 -->
             <div class="summary-card" onclick="openModal('modal-ts-2')">
                 <div class="card-header-top">
                     <span class="project-role" style="background:#fee2e2; color:#991b1b; margin-top:0;">Security & Network</span>
@@ -311,21 +309,19 @@
                 </div>
             </div>
 
-            <!-- TS Card 3 -->
             <div class="summary-card" onclick="openModal('modal-ts-3')">
                 <div class="card-header-top">
                     <span class="project-role" style="background:#e0e7ff; color:var(--primary-color); margin-top:0;">Cloud & DevOps</span>
                     <div class="card-badge">해결 과정 보기 ↗</div>
                 </div>
-                <h3>3. CloudFront 및 ALB 환경의 HTTP 503 및 Mixed Content 에러 해결</h3>
-                <p class="desc" style="margin-bottom: 0;">쿠버네티스 헬스체크 및 HTTPS 프록시 보안 정책 충돌 해결</p>
+                <h3>3. S3 배포 및 ALB 환경의 HTTP 503 및 Mixed Content 에러 해결</h3>
+                <p class="desc" style="margin-bottom: 0;">쿠버네티스 헬스체크 및 프록시 보안 정책 충돌 해결</p>
                 <div class="ts-problem-box">
                     <strong>문제 상황:</strong>
                     <p>React 대시보드에서 로그인 또는 카메라 영상을 호출할 때 HTTP 503 Service Unavailable 및 Mixed Content 에러가 발생하여 실시간 통신 및 영상 렌더링이 전면 마비됨.</p>
                 </div>
             </div>
 
-            <!-- TS Card 4 -->
             <div class="summary-card" onclick="openModal('modal-ts-4')">
                 <div class="card-header-top">
                     <span class="project-role" style="background:#e0e7ff; color:var(--primary-color); margin-top:0;">Fullstack & API</span>
@@ -404,7 +400,7 @@
     </footer>
 
     <!-- ==========================================
-         Modals (프로젝트 및 트러블슈팅 팝업 컨테이너)
+         Modals (프로젝트 및 트러블슈팅 팝업 전체 모음)
          ========================================== -->
          
     <!-- Modal 1: 스마트 안전 관제 시스템 -->
@@ -429,7 +425,7 @@
                 <li>
                     <strong>이슈 & 해결:</strong>
                     <div class="list-content sub-content">
-                        <p><b>① CloudFront 및 ALB를 통한 Mixed Content & 503 에러 해결:</b> 클라우드 HTTPS 웹과 사내망 HTTP 영상 간의 PNA/CORS 차단 문제를 CloudFront HTTPS 프록시 적용 및 ALB Target Group(IP Type) 라우팅 분기 처리로 해결하여 보안 인증(Same-Origin)과 실시간 영상 송출을 동시 만족.</p>
+                        <p><b>① S3 단독 배포 및 ALB를 통한 에러 해결:</b> 클라우드 웹과 사내망 HTTP 영상 간의 PNA/CORS 차단 문제를 S3 중심 배포 환경 최적화 및 ALB Target Group(IP Type) 라우팅 분기 처리로 해결하여 보안 인증과 실시간 영상 송출을 동시 만족.</p>
                         <p><b>② Zero-Trust 프라이빗 DB 접근 제어:</b> RDS를 퍼블릭 망에서 격리하고, AWS SSM(Session Manager) 포트 포워딩(15432 포트 우회)을 통해 22번 포트 개방 및 SSH Key 노출 없이 개발자의 안전한 DB 접속 터널링 환경 구축.</p>
                         <p><b>③ 하이브리드 자동 배포(CI/CD) 통합:</b> 프론트(S3), 백엔드(EKS), AI GPU(SSH) 환경이 분리된 복잡한 구조에서 GitHub Actions로 빌드/배포를 일원화. GPU 서버 배포 중 발생한 SSH 데몬 자폭 에러(Status 143)를 <code>pgrep</code> 조건부 킬(kill) 로직으로 디버깅하여 해결.</p>
                     </div>
@@ -445,6 +441,7 @@
             </ul>
             <div class="project-links">
                 <a href="https://github.com/chaehyeon42/smart_safety_AI_system.git" target="_blank">🔗 GitHub Repository</a>
+            </div>
         </div>
     </div>
 
@@ -607,8 +604,8 @@
         <div class="modal-content custom-scrollbar">
             <span class="close-btn" onclick="closeModal('modal-ts-3')">&times;</span>
             <div class="modal-header">
-                <h2>3. CloudFront 및 ALB 환경의 HTTP 503 및 Mixed Content 에러 해결</h2>
-                <p>쿠버네티스 헬스체크 및 HTTPS 프로록시 보안 정책 충돌 해결</p>
+                <h2>3. S3 배포 및 ALB 환경의 HTTP 503 및 Mixed Content 에러 해결</h2>
+                <p>쿠버네티스 헬스체크 및 프록시 보안 정책 충돌 해결</p>
                 <div class="modal-meta">
                     <span class="project-role" style="background:#e0e7ff; color:var(--primary-color);">Cloud & DevOps</span>
                 </div>
@@ -624,14 +621,14 @@
                     <strong>해결 과정:</strong>
                     <div class="list-content sub-content">
                         <p><b>① 503 에러 (ALB 헬스체크 실패):</b> EKS 백엔드 파드는 정상이나 ALB 대상 그룹 상태가 Unhealthy로 떨어짐을 확인. K8s Manifest의 Health Check 경로를 <code>/actuator/health</code>로 교정하고, EKS 노드 보안 그룹에 ALB의 8080 포트 인바운드를 오픈하여 트래픽 전달을 복구했습니다.</p>
-                        <p><b>② Mixed Content 및 CORS 에러:</b> 클라우드의 HTTPS 웹사이트가 온프레미스의 HTTP(8010~8014 포트) 영상을 직접 호출하면서 발생하는 보안 차단을 막기 위해, AWS CloudFront를 도입하여 HTTPS로 중계했습니다.</p>
-                        <p><b>③ ALB 대상 그룹 라우팅 분기:</b> CloudFront의 <code>/mjpeg/*</code> 요청을 AWS ALB로 넘기고, ALB의 대상 그룹을 <b>IP Type</b>으로 설정하여 온프레미스 GPU 서버(공인 IP)의 각 포트별로 정밀하게 라우팅 분기 규칙을 생성했습니다.</p>
+                        <p><b>② Mixed Content 및 CORS 에러:</b> 웹사이트가 온프레미스의 HTTP 영상을 직접 호출하면서 발생하는 보안 차단을 막기 위해, S3 배포 환경에 맞춘 보안 그룹 및 ALB 라우팅을 통해 중계했습니다.</p>
+                        <p><b>③ ALB 대상 그룹 라우팅 분기:</b> ALB의 대상 그룹을 <b>IP Type</b>으로 설정하여 온프레미스 GPU 서버(공인 IP)의 각 포트별로 정밀하게 라우팅 분기 규칙을 생성했습니다.</p>
                     </div>
                 </li>
                 <li>
                     <strong>결과 및<br>습득 역량:</strong>
                     <div class="list-content sub-content">
-                        네트워크 라우팅 규칙과 CDN 캐시/보안 정책을 결합하여 영상 송출 성공률 100%를 달성했습니다. 이를 통해 웹 브라우저의 최신 보안 정책(PNA, CORS)과 클라우드 로드밸런싱 계층 간의 상관관계를 통제하는 트러블슈팅 역량을 습득했습니다.
+                        네트워크 라우팅 규칙과 ALB 보안 정책을 결합하여 영상 송출 성공률 100%를 달성했습니다. 이를 통해 웹 브라우저의 최신 보안 정책(PNA, CORS)과 클라우드 로드밸런싱 계층 간의 상관관계를 통제하는 트러블슈팅 역량을 습득했습니다.
                     </div>
                 </li>
             </ul>
@@ -681,15 +678,21 @@
         // 모달 열기
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+            } else {
+                alert("해당 상세 내용을 찾을 수 없습니다. HTML 코드가 완전히 복사되었는지 확인해주세요!");
+            }
         }
 
         // 모달 닫기
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // 배경 스크롤 복구
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // 배경 스크롤 복구
+            }
         }
 
         // 모달 바깥(어두운 배경) 클릭 시 닫기
